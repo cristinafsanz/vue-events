@@ -1,8 +1,8 @@
 <template>
   <section class="section-container">
-    <h2 v-if="nameCat">
+    <h3 v-if="nameCat">
       {{ nameCat }}
-    </h2>
+    </h3>
     <div class="cat-counter">
       <button type="button" @click="addVote">
         <img :src="imgCat">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
+    <h2>{{ title }}</h2>
     <cat-counter
       :imgCat="imgCat">
     </cat-counter>

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Cat counters</h1>
     <router-link
       :to="{ name: 'StepOne' }"
       class="links-app">

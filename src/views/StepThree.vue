@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
+    <h2>{{ title }}</h2>
     <section>
-      <h2>Cat list</h2>
+      <h3>Cat list</h3>
       <ul class="cat-list">
         <li v-for="(cat, index) in cats" :key="index">
           <button type="button"
@@ -13,7 +13,7 @@
       </ul>
     </section>
     <section>
-      <h1>Chosen cat</h1>
+      <h3>Chosen cat</h3>
       <cat-counter
         v-if="imgCat"
         :imgCat="imgCat"
