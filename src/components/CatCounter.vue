@@ -31,25 +31,31 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    initCount: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
 
   data () {
     return {
       title: 'Step One',
-      counter: 0
+      counter: this.initCount
     }
   },
 
   watch: {
     imgCat () {
-      this.counter = 0
+      this.counter = this.initCount
     }
   },
 
   methods: {
     addVote () {
       this.counter += 1
+      this.$emit('addedVote', this.counter)
     }
   }
 }

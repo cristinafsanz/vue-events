@@ -6,7 +6,7 @@
       <ul class="cat-list">
         <li v-for="(cat, index) in cats" :key="index">
           <button type="button"
-            @click="chooseCat(cat)">
+            @click="chooseCat(cat, index)">
             {{ cat.nameCat }}
           </button>
         </li>
@@ -17,7 +17,9 @@
       <cat-counter
         v-if="imgCat"
         :imgCat="imgCat"
-        :nameCat="nameCat">
+        :nameCat="nameCat"
+        :initCount="cats[index].counter"
+        @addedVote="setCounter">
       </cat-counter>
       <div v-else>
         No chosen cat.
@@ -41,25 +43,45 @@ export default {
       title: 'Step Three',
       imgCat: '',
       nameCat: '',
+      index: 0,
       cats: [
         { nameCat: 'Rodolfo',
-          imgCat: require('@/assets/cat1.jpg') },
+          imgCat: this.getImgCat('cat1'),
+          counter: 0
+        },
         { nameCat: 'Luna',
-          imgCat: require('@/assets/cat2.jpg') },
+          imgCat: this.getImgCat('cat2'),
+          counter: 0
+        },
         { nameCat: 'Bigotes',
-          imgCat: require('@/assets/cat3.jpg') },
+          imgCat: this.getImgCat('cat3'),
+          counter: 0
+        },
         { nameCat: 'Camilo',
-          imgCat: require('@/assets/cat4.jpg') },
+          imgCat: this.getImgCat('cat4'),
+          counter: 0
+        },
         { nameCat: 'Juno',
-          imgCat: require('@/assets/cat5.jpg') }
+          imgCat: this.getImgCat('cat5'),
+          counter: 0
+        }
       ]
     }
   },
 
   methods: {
-    chooseCat (cat) {
+    chooseCat (cat, index) {
       this.nameCat = cat.nameCat
       this.imgCat = cat.imgCat
+      this.index = index
+    },
+
+    setCounter (counter) {
+      this.cats[this.index].counter = counter
+    },
+
+    getImgCat (imgCatName) {
+      return require(`@/assets/${imgCatName}.jpg`)
     }
   }
 }
@@ -69,12 +91,12 @@ export default {
     list-style-type: none;
   }
   .cat-list button {
-    background:none!important;
-    color:inherit;
-    border:none;
-    padding:0!important;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
     font: inherit;
-    border-bottom:1px solid #444;
+    border-bottom: 1px solid #444;
     cursor: pointer;
   }
 </style>
