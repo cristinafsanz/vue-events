@@ -32,30 +32,16 @@ export default {
       required: false,
       default: ''
     },
-    initCount: {
+    counter: {
       type: Number,
       required: false,
       default: 0
     }
   },
 
-  data () {
-    return {
-      title: 'Step One',
-      counter: this.initCount
-    }
-  },
-
-  watch: {
-    imgCat () {
-      this.counter = this.initCount
-    }
-  },
-
   methods: {
     addVote () {
-      this.counter += 1
-      this.$emit('addedVote', this.counter)
+      this.$emit('addedVote', this.counter + 1)
     }
   }
 }

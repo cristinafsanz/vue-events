@@ -18,7 +18,7 @@
         v-if="imgCat"
         :imgCat="imgCat"
         :nameCat="nameCat"
-        :initCount="cats[index].counter"
+        :counter="cats[index].counter"
         @addedVote="setCounter">
       </cat-counter>
       <div v-else>

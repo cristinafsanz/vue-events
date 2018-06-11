@@ -2,7 +2,9 @@
   <div>
     <h2>{{ title }}</h2>
     <cat-counter
-      :imgCat="imgCat">
+      :imgCat="imgCat"
+      :counter="counter"
+      @addedVote="setCounter">
     </cat-counter>
   </div>
 </template>
@@ -20,7 +22,14 @@ export default {
   data () {
     return {
       title: 'Step One',
-      imgCat: require('@/assets/cat1.jpg')
+      imgCat: require('@/assets/cat1.jpg'),
+      counter: 0
+    }
+  },
+
+  methods: {
+    setCounter (counter) {
+      this.counter = counter
     }
   }
 }
